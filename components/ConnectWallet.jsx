@@ -52,32 +52,32 @@ const ConnectWallet = () => {
   };
 
   // Retrieve address, if permission has been given before. (re-connect)
-  useEffect(() => {
-    retrieveSession();
-    getNetwork();
-  }, []);
+  // useEffect(() => {
+  //   retrieveSession();
+  //   getNetwork();
+  // }, []);
 
-  useEffect(() => {
-    if (!chain.supported) {
-      setWallet({ address: null, connected: false, balance: null });
-    }
-  }, [chain, setWallet]);
+  // useEffect(() => {
+  //   if (!chain.supported) {
+  //     setWallet({ address: null, connected: false, balance: null });
+  //   }
+  // }, [chain, setWallet]);
 
-  // Listen for account change and update the data.
-  // Listen for chain changes and reload the page.
-  useEffect(() => {
-    if (window.ethereum) {
-      window.ethereum.on("accountsChanged", () => {
-        retrieveSession();
-      });
-      window.ethereum.on("chainChanged", () => {
-        window.location.reload();
-      });
-      return () => {
-        window.ethereum.removeAllListeners();
-      };
-    }
-  }, []);
+  // // Listen for account change and update the data.
+  // // Listen for chain changes and reload the page.
+  // useEffect(() => {
+  //   if (window.ethereum) {
+  //     window.ethereum.on("accountsChanged", () => {
+  //       retrieveSession();
+  //     });
+  //     window.ethereum.on("chainChanged", () => {
+  //       window.location.reload();
+  //     });
+  //     return () => {
+  //       window.ethereum.removeAllListeners();
+  //     };
+  //   }
+  // }, []);
 
   const switchChain = async () => {
     if (window.ethereum) {

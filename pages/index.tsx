@@ -4,15 +4,7 @@ import type { NextPage } from "next";
 import MainWrapper from "../components/Wrappers/MainWrapper";
 
 const Home: NextPage = () => {
-  const [firstRender, setFirstRender] = useState(true);
-
-  useEffect(() => {
-    if (firstRender) {
-      setFirstRender(false);
-    }
-  }, [firstRender]);
-
-  return !firstRender ? (
+  return (
     <>
       <MainWrapper>
         <div className="h-full w-full border-2 border-black">
@@ -21,8 +13,6 @@ const Home: NextPage = () => {
         </div>
       </MainWrapper>
     </>
-  ) : (
-    <></>
   );
 };
 
