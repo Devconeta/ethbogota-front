@@ -1,5 +1,6 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
+import { MetaMaskProvider } from "../context/MetamaskContext";
 declare global {
   interface Window {
     ethereum?: any;
@@ -7,7 +8,11 @@ declare global {
 }
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />;
+  return (
+    <MetaMaskProvider>
+      <Component {...pageProps} />
+    </MetaMaskProvider>
+  );
 }
 
 export default MyApp;
