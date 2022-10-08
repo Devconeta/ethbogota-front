@@ -1,20 +1,15 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
+import type { NextPage } from "next";
+
+import MainWrapper from "../components/Wrappers/MainWrapper";
 
 const Home: NextPage = () => {
   return (
-    <div>
-      <Head>
-        <title>Web3 Storage</title>
-        <meta name="description" content="Project for ETHBogota Hackathon" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    <>
+      <MainWrapper>
+        <h1>Web3 Storage</h1>
+      </MainWrapper>
+    </>
+  );
+};
 
-      <main>
-        
-      </main>
-    </div>
-  )
-}
-
-export default Home
+export default Home;
