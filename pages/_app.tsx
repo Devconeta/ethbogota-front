@@ -1,5 +1,6 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
+import { UserContextProvider } from "../context/userContext";
 declare global {
   interface Window {
     ethereum?: any;
@@ -7,7 +8,11 @@ declare global {
 }
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />;
+  return (
+    <UserContextProvider>
+      <Component {...pageProps} />
+    </UserContextProvider>
+  );
 }
 
 export default MyApp;
