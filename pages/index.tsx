@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 
 import type { NextPage } from "next";
-
-import Header from "../components/Main/Header";
 import MainWrapper from "../components/Wrappers/MainWrapper";
 
 const Home: NextPage = () => {
@@ -17,7 +15,10 @@ const Home: NextPage = () => {
   return !firstRender ? (
     <>
       <MainWrapper>
-        <Header />
+        <div className="h-full w-full border-2 border-black">
+          {/* <div className=" h-80 w-1/2 rounded-2xl bg-white/80"></div> */}
+          <div className=""></div>
+        </div>
       </MainWrapper>
     </>
   ) : (
