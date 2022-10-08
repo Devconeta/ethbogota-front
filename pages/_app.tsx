@@ -12,8 +12,8 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <MetaMaskProvider>
       <UserContextProvider>
-      <Component {...pageProps} />
-    </UserContextProvider>
+        <Component {...pageProps} />
+      </UserContextProvider>
     </MetaMaskProvider>
 
   );
