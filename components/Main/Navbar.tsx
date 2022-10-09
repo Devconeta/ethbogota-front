@@ -1,10 +1,10 @@
 import { useState, useEffect, useContext } from "react";
 import { ethers } from "ethers";
 import Button from "../Wrappers/Button";
-import ConnectWallet from "../ConnectWallet";
 import Link from "next/link";
 import { UserContext } from "../../context/userContext";
 import { useRouter } from "next/router";
+import { ConnectWallet } from "../ConnectButton";
 
 const Navbar = () => {
   const { wallet } = useContext(UserContext);
