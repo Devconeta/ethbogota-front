@@ -13,17 +13,17 @@ const Navbar = () => {
 
   return (
     <div className="mt-10 mb-10 flex w-full justify-between border-green-500">
-      <div className="flex items-center gap-10">
+      <div className="flex items-center gap-28">
         <Link href="/">
           <span className="flex cursor-pointer items-center">
             <img src="key.png" alt="" className="relative top-[3px] h-12 w-12" />
-            <h1 className="flex text-3xl font-semibold text-black">Distribuited cloud</h1>
+            <h1 className="flex text-3xl font-semibold text-black">MyPFS</h1>
           </span>
         </Link>
 
         {wallet.connected && router.pathname !== "/app" && (
           <Link href="app">
-            <button className="text-xl font-bold">Enter app</button>
+            <button className="text-2xl font-semibold">Enter app</button>
           </Link>
         )}
       </div>
