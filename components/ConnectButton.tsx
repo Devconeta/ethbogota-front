@@ -7,6 +7,7 @@ import { getAddressShortcut } from "../helperFuncions";
 
 export const ConnectWallet = () => {
   const [state, dispatch] = useContext(MetaMaskContext);
+<<<<<<< HEAD
   const { wallet, setWallet, fs } = useContext(UserContext);
 
   const WalletContainer = ({ children, className }) => {
@@ -30,6 +31,9 @@ export const ConnectWallet = () => {
       fs?.storeFiles(wallet.address, [new File([blob], `hisname.json`)], index); // CHANGE THIS
     });
   };
+=======
+  const { setWallet } = useContext(UserContext);
+>>>>>>> 73bd4df40b92697abbb6ea228c0404881507f123
 
   const handleConnectClick = async () => {
     try {
@@ -77,9 +81,13 @@ export const ConnectWallet = () => {
         <WalletContainer onClick={handleConnectClick} disabled={!state.installedSnap}>
           <img src="./flask_fox.svg" alt="flask logo" className="mr-2 h-7 w-7" />
           <span>Connect Wallet</span>
+<<<<<<< HEAD
         </WalletContainer>
 
         <button onClick={encryptAndUpload}>encryptAndUploadTest</button>
+=======
+        </button>
+>>>>>>> 73bd4df40b92697abbb6ea228c0404881507f123
       </>
     );
   }

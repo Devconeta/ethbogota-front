@@ -1,6 +1,8 @@
-import React, { useCallback, useEffect, useState } from "react";
-import Block from "./Wrappers/Block";
+import React, { useCallback, useEffect, useState, useContext } from "react";
 import { useDropzone } from "react-dropzone";
+import { UserContext } from "../context/userContext";
+
+import Block from "./Wrappers/Block";
 import Button from "./Wrappers/Button";
 import Loader from "./Modals/Loader";
 
@@ -20,13 +22,14 @@ const getFileName = fileName => {
 };
 
 const UploadBlock = () => {
+  const { wallet, fs, files } = useContext(UserContext);
   const [uploadingState, setUploadingState] = useState(null);
+
   // null, uploading, encrypting, publising, null
 
   const { acceptedFiles, getRootProps, getInputProps, isDragActive } = useDropzone();
-  console.log(acceptedFiles);
 
-  const files = acceptedFiles.map((file, index) => {
+  const preUploadFiles = acceptedFiles.map((file, index) => {
     if (index > 2) return;
     return (
       <li key={file.path}>
@@ -36,17 +39,7 @@ const UploadBlock = () => {
   });
 
   const handleUploadFiles = e => {
-    e.stopPropagation();
-    setUploadingState("uploading");
-    setTimeout(() => {
-      setUploadingState("encrypting");
-    }, 2000);
-    setTimeout(() => {
-      setUploadingState("publishing");
-    }, 5000);
-    setTimeout(() => {
-      setUploadingState(null);
-    }, 10000);
+    fs?.storeFiles(wallet.address, acceptedFiles, files);
   };
 
   return (
@@ -67,8 +60,8 @@ const UploadBlock = () => {
                 ? "Drop those files here!"
                 : "Drag and drop files here or click to select"}
             </p>
-            {files.length > 0 ? (
-              <div className="relative top-[1.2rem] left-[1.2rem]">{files}</div>
+            {preUploadFiles.length > 0 ? (
+              <div className="relative top-[1.2rem] left-[1.2rem]">{preUploadFiles}</div>
             ) : (
               <div className="flex h-full w-full items-center justify-center">
                 <img
@@ -78,10 +71,12 @@ const UploadBlock = () => {
                 />
               </div>
             )}
-            {files.length > 3 && <p className="relative top-[1rem] text-center text-xl">...</p>}
+            {preUploadFiles.length > 3 && (
+              <p className="relative top-[1rem] text-center text-xl">...</p>
+            )}
           </>
 
-          {files.length > 0 && (
+          {preUploadFiles.length > 0 && (
             <Button
               onClick={e => {
                 handleUploadFiles(e);

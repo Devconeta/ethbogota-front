@@ -10,7 +10,6 @@ const Navbar = () => {
   const { wallet } = useContext(UserContext);
 
   const router = useRouter();
-
   return (
     <div className="mt-10 mb-10 flex w-full justify-between border-green-500">
       <div className="flex items-center gap-28">
