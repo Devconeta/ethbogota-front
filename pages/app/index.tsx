@@ -15,7 +15,8 @@ const Home: NextPage = () => {
   };
 
   const dowloadFile = async (file: UploadedFile) => {
-    const files = await fs.getFiles([file], keys.privateKey);
+    const files = await fs?.getFiles([file], keys.privateKey);
+    if (!files) return;
     const fileUrl = URL.createObjectURL(files[0]);
     const a = document.createElement("a");
     a.href = fileUrl;

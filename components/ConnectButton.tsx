@@ -1,3 +1,4 @@
+import React from "react";
 import { useContext } from "react";
 import { UserContext } from "../context/userContext";
 import { MetamaskActions, MetaMaskContext } from "../context/MetamaskContext";
@@ -8,26 +9,16 @@ export const ConnectWallet = () => {
   const [state, dispatch] = useContext(MetaMaskContext);
   const { wallet, setWallet, fs } = useContext(UserContext);
 
-  const WalletContainer = ({ children, className }) => {
+  const WalletContainer = ({ children, className, onClick, disabled }) => {
     return (
       <button
+        disabled={disabled}
+        onClick={onClick}
         className={`flex items-center justify-center rounded-xl bg-black px-4 py-3 font-semibold text-blue-50 ${className}`}
       >
         {children}
       </button>
     );
-  };
-
-  const encryptAndUpload = () => {
-    // CHANGE THIS
-    const blob = new Blob([JSON.stringify({ name: "Gonza" })], {
-      type: "application/json",
-    });
-
-    fs?.getRootIndex().then((index: any[]) => {
-      console.log({ index });
-      fs?.storeFiles(wallet.address, [new File([blob], `hisname.json`)], index); // CHANGE THIS
-    });
   };
 
   const handleConnectClick = async () => {

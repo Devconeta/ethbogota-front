@@ -41,7 +41,8 @@ const UploadBlock = () => {
   const handleUploadFiles = e => {
     e.stopPropagation();
 
-    fs?.storeFiles(wallet.address, acceptedFiles, files, keys.publicKey).catch(err => {
+    fs?.storeFiles(wallet.address, acceptedFiles, files, keys.publicKey)
+    .catch(err => {
       console.log(err);
     });
   };
