@@ -30,15 +30,17 @@ const Home: NextPage = () => {
           <div className="flex h-full w-full gap-8">
             {/* wallet stats */}
             <div className="flex w-5/12 flex-col">
-              <Block className="mb-8 flex h-[120px] flex-col">
-                <span>Address: {getAddressShortcut(wallet.address)}</span>
-                <span>Storage used: 99%: 4.95gb</span>
+              <Block className="mb-8 flex h-[80px] flex-col">
+                {/* <span>Address: {getAddressShortcut(wallet.address)}</span> */}
+                <span className="flex gap-1">
+                  <p className="font-semibold">Provider storage used:</p> 12mb / 5gb
+                </span>
               </Block>
               {/* upload files */}
               <UploadBlock />
             </div>
             {/* files */}
-            <Block className="h-[70vh] overflow-y-auto">
+            <Block className="no-scrollbar h-[69vh] overflow-hidden overflow-y-auto">
               {files.map((file, index) => (
                 <div
                   className={`flex border-black/90 py-2.5 ${
