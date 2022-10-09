@@ -61,7 +61,7 @@ const UploadBlock = () => {
                 : "Drag and drop files here or click to select"}
             </p>
             {preUploadFiles.length > 0 ? (
-              <div className="relative top-[1.2rem] left-[1.2rem]">{files}</div>
+              <div className="relative top-[1.2rem] left-[1.2rem]">{preUploadFiles}</div>
             ) : (
               <div className="flex h-full w-full items-center justify-center">
                 <img

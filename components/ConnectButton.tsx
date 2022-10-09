@@ -5,27 +5,7 @@ import { connectSnap, getSnap, shouldDisplayReconnectButton } from "../utils";
 
 export const ConnectWallet = () => {
   const [state, dispatch] = useContext(MetaMaskContext);
-<<<<<<< HEAD
   const { setWallet } = useContext(UserContext);
-=======
-  const { wallet, setWallet, fs } = useContext(UserContext);
-
-  const WalletButton = () => {
-    return <button className="rounded-xl bg-black text-blue-50"></button>;
-  };
-
-  const encryptAndUpload = () => {
-    // CHANGE THIS
-    const blob = new Blob([JSON.stringify({ name: "Gonza" })], {
-      type: "application/json",
-    });
-
-    fs?.getRootIndex().then((index: any[]) => {
-      console.log({ index });
-      fs?.storeFiles(wallet.address, [new File([blob], `hisname.json`)], index); // CHANGE THIS
-    });
-  };
->>>>>>> ef1bf49b9c703eb96d97cb9a7944cea9fa33029e
 
   const handleConnectClick = async () => {
     try {
