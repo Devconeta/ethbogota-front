@@ -12,6 +12,14 @@ const mockedFiles = [
   { cid: "Ox21yu3yu3yu213jgjg123yt213gj213", name: "randoasd s sadname.txt", date: "05-09-2022" },
   { cid: "Ox21yu3yu3yu213jgjg123yt213gj213", name: "ran name.txt", date: "05-09-2022" },
   { cid: "Ox21yu3yu3yu213jgjg123yt213gj213", name: "rale me.txt", date: "05-09-2022" },
+  { cid: "Ox21yu3yu3yu213jgjg123yt213gj213", name: "rae.txt", date: "05-09-2022" },
+  { cid: "Ox21yu3yu3yu213jgjg123yt213gj213", name: "randoasd s sadname.txt", date: "05-09-2022" },
+  { cid: "Ox21yu3yu3yu213jgjg123yt213gj213", name: "ran name.txt", date: "05-09-2022" },
+  { cid: "Ox21yu3yu3yu213jgjg123yt213gj213", name: "rale me.txt", date: "05-09-2022" },
+  { cid: "Ox21yu3yu3yu213jgjg123yt213gj213", name: "rae.txt", date: "05-09-2022" },
+  { cid: "Ox21yu3yu3yu213jgjg123yt213gj213", name: "randoasd s sadname.txt", date: "05-09-2022" },
+  { cid: "Ox21yu3yu3yu213jgjg123yt213gj213", name: "ran name.txt", date: "05-09-2022" },
+  { cid: "Ox21yu3yu3yu213jgjg123yt213gj213", name: "rale me.txt", date: "05-09-2022" },
 ];
 
 const Home: NextPage = () => {
@@ -20,23 +28,25 @@ const Home: NextPage = () => {
     <>
       <MainWrapper>
         <div className="h-full w-full ">
-          <div className="flex h-full w-full gap-10">
+          <div className="flex h-full w-full gap-8">
             {/* wallet stats */}
-            <div className="flex w-4/12 flex-col">
-              <Block className="mb-10 h-[120px] flex flex-col">
-                <span>
-                  Address: {wallet.address}{" "}
-                  {getAddressShortcut("0x7ED27AB6cE44B19e2c1eE1317B836D4dEC1fD7ae")}
-                </span>
-                <span>Available space: 99%: 4.95gb</span>
+            <div className="flex w-5/12 flex-col">
+              <Block className="mb-8 flex h-[120px] flex-col">
+                <span>Address: {getAddressShortcut(wallet.address)}</span>
+                <span>Storage used: 99%: 4.95gb</span>
               </Block>
               {/* upload files */}
               <UploadBlock />
             </div>
             {/* files */}
-            <Block className="">
+            <Block className="h-[70vh] overflow-y-auto">
               {mockedFiles.map((file, index) => (
-                <div className="flex border-b-2 border-black/90 py-2.5" key={index}>
+                <div
+                  className={`flex border-black/90 py-2.5 ${
+                    index + 1 !== mockedFiles.length && "border-b-2"
+                  }`}
+                  key={index}
+                >
                   <div className="w-7/12 pl-2 ">{file.cid}</div>
                   <div className="w-4/12 ">{file.name}</div>
                   <div className="w-5/12 text-center ">{file.date}</div>

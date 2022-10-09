@@ -7,6 +7,10 @@ export const ConnectWallet = () => {
   const [state, dispatch] = useContext(MetaMaskContext);
   const { wallet, setWallet, fs } = useContext(UserContext);
 
+  const WalletButton = () => {
+    return <button className="rounded-xl bg-black text-blue-50"></button>;
+  };
+
   const encryptAndUpload = () => {
     // CHANGE THIS
     const blob = new Blob([JSON.stringify({ name: "Gonza" })], {
@@ -22,9 +26,9 @@ export const ConnectWallet = () => {
   const handleConnectClick = async () => {
     try {
       await connectSnap();
-
       const installedSnap = await getSnap();
 
+      console.log(installedSnap);
       dispatch({
         type: MetamaskActions.SetInstalled,
         payload: installedSnap,

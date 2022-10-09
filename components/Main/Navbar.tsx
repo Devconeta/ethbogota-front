@@ -10,12 +10,12 @@ const Navbar = () => {
   const { wallet } = useContext(UserContext);
 
   const router = useRouter();
-  console.log(router.pathname);
+
   return (
     <div className="mt-10 mb-10 flex w-full justify-between border-green-500">
       <div className="flex items-center gap-10">
         <Link href="/">
-          <span className="flex items-center">
+          <span className="flex cursor-pointer items-center">
             <img src="key.png" alt="" className="relative top-[3px] h-12 w-12" />
             <h1 className="flex text-3xl font-semibold text-black">Distribuited cloud</h1>
           </span>
