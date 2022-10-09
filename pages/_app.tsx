@@ -3,11 +3,6 @@ import type { AppProps } from "next/app";
 import { MetaMaskProvider } from "../context/MetamaskContext";
 import { UserContextProvider } from "../context/userContext";
 import { useState, useEffect } from "react";
-declare global {
-  interface Window {
-    ethereum?: any;
-  }
-}
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [firstRender, setFirstRender] = useState(true);
