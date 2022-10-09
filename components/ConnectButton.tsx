@@ -75,10 +75,8 @@ export const ConnectWallet = () => {
       <>
         <WalletContainer onClick={handleConnectClick} disabled={!state.installedSnap}>
           <img src="./flask_fox.svg" alt="flask logo" className="mr-2 h-7 w-7" />
-          <span>Connect Wallet</span>
+          <span>{wallet.connected ? "Connected" : "Connect Wallet"}</span>
         </WalletContainer>
-
-        <button onClick={encryptAndUpload}>encryptAndUploadTest</button>
       </>
     );
   }
