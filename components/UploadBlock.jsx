@@ -22,8 +22,8 @@ const getFileName = fileName => {
 };
 
 const UploadBlock = () => {
-  const { wallet, fs, files } = useContext(UserContext);
-  const [uploadingState, setUploadingState] = useState(null);
+  const { wallet, fs, files, setFiles, keys } = useContext(UserContext);
+  const [uploadingState, setUploadingState] = useState(false);
 
   // null, uploading, encrypting, publising, null
 
@@ -39,7 +39,13 @@ const UploadBlock = () => {
   });
 
   const handleUploadFiles = e => {
-    fs?.storeFiles(wallet.address, acceptedFiles, files);
+    e.stopPropagation();
+
+    setUploadingState(true);
+
+    fs?.storeFiles(wallet.address, acceptedFiles, files, keys.publicKey).catch(err => {
+      console.log(err);
+    });
   };
 
   return (
@@ -78,9 +84,7 @@ const UploadBlock = () => {
 
           {preUploadFiles.length > 0 && (
             <Button
-              onClick={e => {
-                handleUploadFiles(e);
-              }}
+              onClick={e => handleUploadFiles(e)}
               className="from-black-to absolute left-0 bottom-[-3.8rem] w-[120px] py-1 hover:bg-black/10"
             >
               Upload

@@ -8,10 +8,19 @@ import { getAddressShortcut } from "../../helperFuncions";
 import { UploadedFile } from "myweb3fs";
 
 const Home: NextPage = () => {
-  const { wallet, files } = useContext(UserContext);
+  const { wallet, files, fs, keys } = useContext(UserContext);
 
   const formatDate = (file: UploadedFile) => {
     return new Date(file.lastModified).toISOString().split("T")[0];
+  };
+
+  const dowloadFile = async (file: UploadedFile) => {
+    const files = await fs.getFiles([file], keys.privateKey);
+    const fileUrl = URL.createObjectURL(files[0]);
+    const a = document.createElement("a");
+    a.href = fileUrl;
+    a.download = file.name;
+    a.click();
   };
 
   return (
@@ -39,17 +48,19 @@ const Home: NextPage = () => {
                 >
                   <div className="flex w-full flex-row items-center justify-between">
                     <div className="w-7/12 pl-2 ">
-                      {file.cid.slice(0, 10) + "..." + file.cid.slice(30, -1)}
+                      {file?.cid.slice(0, 10) + "..." + file?.cid.slice(30, -1)}
                     </div>
-                    <div className="w-4/12 pl-14">{file.name}</div>
+                    <div className="w-4/12 pl-14">{file?.name}</div>
                     <div className="w-3/12 text-center ">{formatDate(file)}</div>
                   </div>
                   <div className="flex justify-end pr-2 ">
-                    <img
-                      className="h-6 w-6 cursor-pointer"
-                      src="download.png"
-                      alt="download encrypted file"
-                    />
+                    <button onClick={e => dowloadFile(file)}>
+                      <img
+                        className="h-6 w-6 cursor-pointer"
+                        src="download.png"
+                        alt="download encrypted file"
+                      />
+                    </button>
                   </div>
                 </div>
               ))}

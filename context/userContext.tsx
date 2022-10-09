@@ -13,6 +13,7 @@ interface GlobalContext {
   chain: { name: string; id: number };
   keys: { publicKey: string; privateKey: string };
   files: UploadedFile[];
+  setFiles: (files: UploadedFile[]) => void;
   fs?: MyFS;
 }
 
@@ -22,7 +23,7 @@ export const UserContextProvider = ({ children }: { children: React.ReactNode })
   const [wallet, setWallet] = useState({ address: "", connected: false });
   const [chain, setChain] = useState({ name: "", id: 0 });
   const [keys, setKeys] = useState({ privateKey: "", publicKey: "" });
-  const [files, setFiles] = useState([]);
+  const [files, setFiles] = useState([] as any);
 
   useEffect(() => {
     retrieveSession();
@@ -68,7 +69,7 @@ export const UserContextProvider = ({ children }: { children: React.ReactNode })
   };
 
   return (
-    <UserContext.Provider value={{ wallet, setWallet, chain, fs, keys, files }}>
+    <UserContext.Provider value={{ wallet, setWallet, chain, fs, keys, files, setFiles }}>
       {children}
     </UserContext.Provider>
   );

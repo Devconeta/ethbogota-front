@@ -4095,10 +4095,10 @@ murmurhash3js-revisited@^3.0.0:
   resolved "https://registry.yarnpkg.com/murmurhash3js-revisited/-/murmurhash3js-revisited-3.0.0.tgz#6bd36e25de8f73394222adc6e41fa3fac08a5869"
   integrity sha512-/sF3ee6zvScXMb1XFJ8gDsSnY+X8PbOyjIuBhtgis10W2Jx4ZjIhikUCIF9c4gpJxVnQIsPAFrSwTCuAjicP6g==
 
-myweb3fs@0.1.8:
-  version "0.1.8"
-  resolved "https://registry.yarnpkg.com/myweb3fs/-/myweb3fs-0.1.8.tgz#1551f1172554a869c8814a81b4cd3270104773ac"
-  integrity sha512-9EkGsjqJO3n+ytpMz9xYCMS+lIs1+7Ksme1gfugtJbYFgNRBGzhIu8Sb9yKEynlux4bQQxnvdC8i7rbKQaYdMg==
+myweb3fs@0.2.5:
+  version "0.2.5"
+  resolved "https://registry.yarnpkg.com/myweb3fs/-/myweb3fs-0.2.5.tgz#cac6f14cb7f9264e9395f268eeba84a6039d7bef"
+  integrity sha512-6OBCjTYdH40knbEX83FP+GSTV8yDvL8C31qDnKEJtFTFEFfMx7V02a4oc5W4047f1LiTklhzW7NrGjOKqQ+oqQ==
   dependencies:
     "@daotl/cryptico" "^2.0.3"
     crypto-browserify "^3.12.0"
