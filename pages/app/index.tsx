@@ -31,13 +31,8 @@ const Home: NextPage = () => {
               <UploadBlock />
             </div>
             {/* files */}
-<<<<<<< HEAD
             <Block className="no-scrollbar h-[69vh] overflow-hidden overflow-y-auto">
-              {mockedFiles.map((file, index) => (
-=======
-            <Block className="h-[70vh] overflow-y-auto">
               {files.map((file, index) => (
->>>>>>> 73bd4df40b92697abbb6ea228c0404881507f123
                 <div
                   className={`flex border-black/90 py-2.5 ${
                     index + 1 !== files.length && "border-b-2"
