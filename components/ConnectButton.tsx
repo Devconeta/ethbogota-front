@@ -5,24 +5,11 @@ import { connectSnap, getSnap, shouldDisplayReconnectButton } from "../utils";
 
 export const ConnectWallet = () => {
   const [state, dispatch] = useContext(MetaMaskContext);
-  const { wallet, setWallet, fs } = useContext(UserContext);
-
-  const encryptAndUpload = () => {
-    // CHANGE THIS
-    const blob = new Blob([JSON.stringify({ name: "Gonza" })], {
-      type: "application/json",
-    });
-
-    fs?.getRootIndex().then((index: any[]) => {
-      console.log({ index });
-      fs?.storeFiles(wallet.address, [new File([blob], `hisname.json`)], index); // CHANGE THIS
-    });
-  };
+  const { setWallet } = useContext(UserContext);
 
   const handleConnectClick = async () => {
     try {
       await connectSnap();
-
       const installedSnap = await getSnap();
 
       dispatch({
@@ -66,8 +53,6 @@ export const ConnectWallet = () => {
           <img src="./flask_fox.svg" alt="flask logo" />
           <span>Connect Wallet</span>
         </button>
-
-        <button onClick={encryptAndUpload}>test</button>
       </>
     );
   }

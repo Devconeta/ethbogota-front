@@ -55,4 +55,13 @@ export const getSnap = async (version?: string): Promise<Snap | undefined> => {
   }
 };
 
+export const getUserKeys = async () => {
+  const keys = await window.ethereum.request({
+    method: "wallet_invokeSnap",
+    params: [defaultSnapOrigin, { method: "getUserKeys" }],
+  });
+
+  return keys;
+};
+
 export const isLocalSnap = (snapId: string) => snapId.startsWith("local:");

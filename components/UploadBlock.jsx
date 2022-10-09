@@ -1,6 +1,8 @@
-import React, { useCallback, useEffect, useState } from "react";
-import Block from "./Wrappers/Block";
+import React, { useCallback, useEffect, useState, useContext } from "react";
 import { useDropzone } from "react-dropzone";
+import { UserContext } from "../context/userContext";
+
+import Block from "./Wrappers/Block";
 import Button from "./Wrappers/Button";
 import Loader from "./Modals/Loader";
 
@@ -18,13 +20,14 @@ const getFileName = fileName => {
 };
 
 const UploadBlock = () => {
+  const { wallet, fs, files } = useContext(UserContext);
   const [uploadingState, setUploadingState] = useState(null);
+
   // null, uploading, encrypting, publising, null
 
   const { acceptedFiles, getRootProps, getInputProps, isDragActive } = useDropzone();
-  console.log(acceptedFiles);
 
-  const files = acceptedFiles.map((file, index) => {
+  const preUploadFiles = acceptedFiles.map((file, index) => {
     if (index > 3) return;
     return (
       <li key={file.path}>
@@ -34,17 +37,7 @@ const UploadBlock = () => {
   });
 
   const handleUploadFiles = e => {
-    e.stopPropagation();
-    setUploadingState("uploading");
-    setTimeout(() => {
-      setUploadingState("encrypting");
-    }, 2000);
-    setTimeout(() => {
-      setUploadingState("publishing");
-    }, 5000);
-    setTimeout(() => {
-      setUploadingState(null);
-    }, 10000);
+    fs?.storeFiles(wallet.address, acceptedFiles, files);
   };
 
   return (
@@ -64,10 +57,10 @@ const UploadBlock = () => {
           ) : (
             <>
               <p>Drag and drop files here, or click to select them</p>
-              <div>{files}</div>
+              <div>{preUploadFiles}</div>
             </>
           )}
-          {files.length > 0 && (
+          {preUploadFiles.length > 0 && (
             <Button
               onClick={e => {
                 handleUploadFiles(e);

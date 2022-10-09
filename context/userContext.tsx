@@ -1,13 +1,18 @@
 import MyFS from "myweb3fs";
+import { UploadedFile } from "myweb3fs/dist/types";
 import React, { useEffect } from "react";
 import { createContext } from "react";
 import { useState } from "react";
 import { ethers } from "ethers";
 
+import { getUserKeys } from "../utils";
+
 interface GlobalContext {
   wallet: { address: string; connected: boolean };
   setWallet: (wallet: { address: string; connected: boolean }) => void;
   chain: { name: string; id: number };
+  keys: { publicKey: string; privateKey: string };
+  files: UploadedFile[];
   fs?: MyFS;
 }
 
@@ -16,17 +21,27 @@ export const UserContext = createContext({} as GlobalContext);
 export const UserContextProvider = ({ children }: { children: React.ReactNode }) => {
   const [wallet, setWallet] = useState({ address: "", connected: false });
   const [chain, setChain] = useState({ name: "", id: 0 });
-
-  let provider;
+  const [keys, setKeys] = useState({ privateKey: "", publicKey: "" });
+  const [files, setFiles] = useState([]);
 
   useEffect(() => {
     retrieveSession();
     getNetwork();
   }, []);
 
-  if (window.ethereum) {
-    provider = new ethers.providers.Web3Provider(window.ethereum, "any");
-  }
+  useEffect(() => {
+    if (wallet.connected) {
+      getUserKeys().then(keys => {
+        setKeys(keys);
+      });
+
+      fs?.getRootIndex().then((files: UploadedFile[]) => {
+        setFiles(files as any);
+      });
+    }
+  }, [wallet]);
+
+  const provider = new ethers.providers.Web3Provider(window.ethereum, "any");
 
   const fs: MyFS = new MyFS(process.env.NEXT_PUBLIC_MYFS_KEY as string, provider);
 
@@ -53,6 +68,8 @@ export const UserContextProvider = ({ children }: { children: React.ReactNode })
   };
 
   return (
-    <UserContext.Provider value={{ wallet, setWallet, chain, fs }}>{children}</UserContext.Provider>
+    <UserContext.Provider value={{ wallet, setWallet, chain, fs, keys, files }}>
+      {children}
+    </UserContext.Provider>
   );
 };
