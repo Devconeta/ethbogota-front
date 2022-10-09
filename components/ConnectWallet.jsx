@@ -121,7 +121,7 @@ const ConnectWallet = () => {
           )}
         </button>
       ) : ( */}
-      <Button className="" onClick={connectWallet}>
+      <Button className="!bg-black text-blue-50" onClick={connectWallet}>
         Connect wallet
       </Button>
       {/* )} */}
