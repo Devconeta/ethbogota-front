@@ -16,7 +16,9 @@ const getFileSize = fileSize => {
 };
 
 const getFileName = fileName => {
-  return fileName.slice(0, 16) + "...";
+  if (fileName.length > 24) {
+    return fileName.slice(0, 24) + "...";
+  } else return fileName;
 };
 
 const UploadBlock = () => {
@@ -28,10 +30,10 @@ const UploadBlock = () => {
   const { acceptedFiles, getRootProps, getInputProps, isDragActive } = useDropzone();
 
   const preUploadFiles = acceptedFiles.map((file, index) => {
-    if (index > 3) return;
+    if (index > 2) return;
     return (
       <li key={file.path}>
-        {getFileName(file.path) + "..."} - {getFileSize(file.size)}
+        {getFileName(file.path)} - {getFileSize(file.size)}
       </li>
     );
   });
@@ -52,14 +54,28 @@ const UploadBlock = () => {
           })}
         >
           <input {...getInputProps()} />
-          {isDragActive ? (
-            <p>Drop the files here...</p>
-          ) : (
-            <>
-              <p>Drag and drop files here, or click to select them</p>
-              <div>{preUploadFiles}</div>
-            </>
-          )}
+          <>
+            <p className="relative top-[1rem] text-center">
+              {isDragActive
+                ? "Drop those files here!"
+                : "Drag and drop files here or click to select"}
+            </p>
+            {preUploadFiles.length > 0 ? (
+              <div className="relative top-[1.2rem] left-[1.2rem]">{files}</div>
+            ) : (
+              <div className="flex h-full w-full items-center justify-center">
+                <img
+                  src="upload.png"
+                  className="relative bottom-[0.5rem] h-14 w-14 opacity-[0.3]"
+                  alt=""
+                />
+              </div>
+            )}
+            {preUploadFiles.length > 3 && (
+              <p className="relative top-[1rem] text-center text-xl">...</p>
+            )}
+          </>
+
           {preUploadFiles.length > 0 && (
             <Button
               onClick={e => {

@@ -7,9 +7,14 @@ const Home: NextPage = () => {
   return (
     <>
       <MainWrapper>
-        <div className="h-full w-full border-2 border-black">
+        <div className="h-full w-full">
           <div className="flex flex-col gap-4">
-            <h3 className="text-2xl font-semibold">Presentation text</h3>
+            <h3 className="text-center text-4xl font-semibold">
+              Your data permanently distributed,
+            </h3>
+            <h3 className="relative bottom-[1rem] text-center text-4xl font-semibold">
+              but preserving your privacy.
+            </h3>
             <h2 className="text-xl font-semibold">Presentation text2</h2>
             <p className="">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae officiis tenetur
