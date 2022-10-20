@@ -28,13 +28,13 @@ Also, to make it easy for users to keep track of their file URLs we made a direc
 #### How to try it 
 You will need to use MetaMask Flask, the experimental version of MetaMask that implements Snaps, which will be implemented in the official MetaMask soon.
 
-#### Team Members: https://github.com/Devconeta/README
-
-#### Contracts: https://github.com/Devconeta/ethbogota-contracts
-
-## SDK, to be used by any project: https://github.com/Devconeta/MyFS-sdk
+#### Team Members and Tech used: https://github.com/Devconeta/README
 
 #### Asymetrical Encryption Snap: https://github.com/Devconeta/asymmetrical-encryption-snap
+
+#### SDK, to be used by any project: https://github.com/Devconeta/MyFS-sdk
+
+#### Contracts: https://github.com/Devconeta/ethbogota-contracts
 
 
 #### Special thanks to @ernestognw and the MetaMask team for the help and the pair programming.
