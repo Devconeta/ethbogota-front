@@ -32,6 +32,8 @@ You will need to use MetaMask Flask, the experimental version of MetaMask that i
 
 #### Contracts: https://github.com/Devconeta/ethbogota-contracts
 
+## SDK, to be used by any project: https://github.com/Devconeta/MyFS-sdk
+
 #### Asymetrical Encryption Snap: https://github.com/Devconeta/asymmetrical-encryption-snap
 
 
