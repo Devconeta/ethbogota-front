@@ -24,11 +24,6 @@ Also, to make it easy for users to keep track of their file URLs we made a direc
 </p>
 
 
-
-
-
-
-
 #### How to try it 
 You will need to use MetaMask Flask, the experimental version of MetaMask that implements Snaps, which will be implemented in the official MetaMask soon.
 
@@ -37,6 +32,9 @@ You will need to use MetaMask Flask, the experimental version of MetaMask that i
 #### Contracts: https://github.com/Devconeta/ethbogota-contracts
 
 #### Asymetrical Encryption Snap: https://github.com/Devconeta/asymmetrical-encryption-snap
+
+
+#### Special thanks to @ernestognw and the MetaMask team for help and the pair programming.
 
 
 
