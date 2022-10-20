@@ -34,7 +34,7 @@ You will need to use MetaMask Flask, the experimental version of MetaMask that i
 #### Asymetrical Encryption Snap: https://github.com/Devconeta/asymmetrical-encryption-snap
 
 
-#### Special thanks to @ernestognw and the MetaMask team for help and the pair programming.
+#### Special thanks to @ernestognw and the MetaMask team for the help and the pair programming.
 
 
 
