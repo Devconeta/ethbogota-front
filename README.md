@@ -14,17 +14,15 @@ Encryption is done on the browser using our custom Metamask Snap, where each use
 
 Also, to make it easy for users to keep track of their file URLs we made a directory system stored on a smart contract which gets updated every time a new file is created or re-written.
 
-#### Prizes won:
-- MetaMask
-- Polygon
-
 <p align="center">
 <img src="https://user-images.githubusercontent.com/86085168/197027007-bb09558f-bdbe-416f-9831-073eb8661148.jpg" width="47%">
 &nbsp; 
 <img src="https://user-images.githubusercontent.com/86085168/197028341-8e9e354f-53e8-43c9-857c-67d202524db5.jpg" width="47%">
 </p>
 
-
+#### Prizes won:
+- MetaMask
+- Polygon
 
 #### How to try it 
 You will need to use MetaMask Flask, the experimental version of MetaMask that implements Snaps, which will be implemented in the official MetaMask soon.
