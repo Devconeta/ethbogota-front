@@ -13,6 +13,7 @@ Thanks to our solution we are adding privacy to IPFS. We allow the average user 
 Encryption is done on the browser using our custom Metamask Snap, where each user generates its own app-specific private key so they have a unique key, different from their wallet one. Files are then stored using web3.storage which replicates and pin the data on multiple IPFS nodes so we can ensure we'll never lose our data.
 
 Also, to make it easy for users to keep track of their file URLs we made a directory system stored on a smart contract which gets updated every time a new file is created or re-written.
+<br/><br/>
 
 <p align="center">
 <img src="https://user-images.githubusercontent.com/86085168/197027007-bb09558f-bdbe-416f-9831-073eb8661148.jpg" width="47%">
