@@ -18,10 +18,12 @@ Also, to make it easy for users to keep track of their file URLs we made a direc
 - MetaMask
 - Polygon
 
-<p float="left">
-<img src="https://user-images.githubusercontent.com/86085168/197027007-bb09558f-bdbe-416f-9831-073eb8661148.jpg" width="500">
-<img src="https://user-images.githubusercontent.com/86085168/197028341-8e9e354f-53e8-43c9-857c-67d202524db5.jpg" width="500">
+<p align="center">
+<img src="https://user-images.githubusercontent.com/86085168/197027007-bb09558f-bdbe-416f-9831-073eb8661148.jpg" width="47%">
+&nbsp; 
+<img src="https://user-images.githubusercontent.com/86085168/197028341-8e9e354f-53e8-43c9-857c-67d202524db5.jpg" width="47%">
 </p>
+
 
 
 #### How to try it 
